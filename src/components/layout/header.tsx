@@ -5,12 +5,17 @@ import logo from '../../../public/assets/yt-icon.png'
 import user from '../../../public/assets/user-icon.png'
 import lupa from '../../../public/assets/lupa.png'
 import Link from 'next/link'
+
 const Header :FC= () => {
-  const [search, setSearch] = useState<string>(sessionStorage.getItem('searchQuery') || '')
+  const [search, setSearch] = useState<string>('')
+useEffect(()=>{
+  if (typeof window!== 'undefined'){
+    setSearch(window.sessionStorage.getItem("searchQuery") || '')
+  }
+},[])
   useEffect(()=>{
     sessionStorage.setItem('searchQuery', search)
   }, [search])
-
     return (
         <header className={`py-3 px-5 justify-center items-center mx-auto text-white text-[15px]`}>
             <nav className={`flex justify-between items-center`}>

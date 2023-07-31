@@ -6,17 +6,16 @@ import Link from 'next/link'
 const SearchedItem :FC<Item>= ({snippet,id}) => {
 
   return (
-    <Link href={`/video/${id.videoId}`} className="grid grid-cols-2 pb-5" >
-      <div className="rounded-2xl ">
+    <Link href={`/video/${id.videoId}`} className="flex  pb-5" >
         <Image
           src={snippet.thumbnails.medium.url}
-          width={snippet.thumbnails.medium.width}
-          height={snippet.thumbnails.medium.height}
+          width={320}
+          height={180}
+          className={`rounded-2xl`}
           alt="image"
           objectFit="cover"
           priority={true}
         />
-      </div>
       <div className="pl-3 pt-1 w-1/2">
         <p className="text-white text-lg">
           {snippet.title.split('').length > 67 ? snippet.title.slice(0,67)+'...' : snippet.title}
