@@ -6,7 +6,7 @@ import { it } from 'node:test'
 
 const SearchedList :FC<ISearchData>= ({items}) => {
   return (
-    <ul className={`grid grid-cols-1  justify-items-center items-center `}>
+    <ul className={`  flex flex-col justify-center items-center `}>
       {items.map(item=>{
         return <SearchedItem key={item.id.videoId} {...item} />
       })}
