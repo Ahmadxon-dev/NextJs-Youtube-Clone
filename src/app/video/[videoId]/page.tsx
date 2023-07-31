@@ -7,7 +7,12 @@ import like from '../../../../public/assets/like.png'
 import { data } from 'autoprefixer'
 import { it } from 'node:test'
 import ForEachRelatedToVideo from '../../../components/seo/ForEachRelatedToVideo'
-const EachVideoPage :NextPage=async (context) => {
+interface ContextProps {
+  params: {
+    videoId:string
+  }
+}
+const EachVideoPage :NextPage<ContextProps>=async (context) => {
   // @ts-ignore
   const videoData = await GetVideoById(context.params.videoId)
   const channelId = videoData.items[0].snippet.channelId
